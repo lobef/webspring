@@ -25,7 +25,7 @@ public class DataSourceConfig {
 	private String passWord;
 
 	@Bean
-	public DataSource createDataSource() throws PropertyVetoException{
+	public DataSource createDataSource() throws PropertyVetoException {
 		ComboPooledDataSource dataSource = new ComboPooledDataSource();
 		dataSource.setJdbcUrl(url);
 		dataSource.setDriverClass(driverClass);
@@ -37,9 +37,7 @@ public class DataSourceConfig {
 		dataSource.setInitialPoolSize(10);
 		return dataSource;
 	}
-	
-	
-	
+
 	public String getUrl() {
 		return url;
 	}

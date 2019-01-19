@@ -7,13 +7,14 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @ComponentScan(basePackages = { "com.luo.webspring.service", "com.luo.webspring.components" }
-//, excludeFilters = {@Filter(type=FilterType.ANNOTATION,classes=EnableWebMvc.class) }
+// , excludeFilters =
+// {@Filter(type=FilterType.ANNOTATION,classes=EnableWebMvc.class) }
 )
 public class RootConfig {
-	
+
 	// 创建过滤器
 	@Bean
-	public CharacterEncodingFilter createEncodingFilter(){
+	public CharacterEncodingFilter createEncodingFilter() {
 		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
 		encodingFilter.setEncoding("UTF-8");
 		encodingFilter.setForceEncoding(true);
