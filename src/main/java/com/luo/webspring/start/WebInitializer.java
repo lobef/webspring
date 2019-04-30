@@ -16,6 +16,10 @@ public class WebInitializer implements WebApplicationInitializer {
 		// annotationConfigWebApplicationContext.register(RootConfig.class, SpringMvcConfig.class, DataSourceConfig.class);
 		annotationConfigWebApplicationContext.scan("com.luo.webspring.config");
 		annotationConfigWebApplicationContext.setServletContext(servletContext);
+		// 解决Name [spring.liveBeansView.mbeanDomain] is not bound in this Context问题
+		servletContext.setInitParameter("spring.profiles.active", "dev");
+		servletContext.setInitParameter("spring.profiles.default", "dev");
+		servletContext.setInitParameter("spring.liveBeansView.mbeanDomain", "dev");
 		Dynamic dynamic = servletContext.addServlet("dispatcher",
 				new DispatcherServlet(annotationConfigWebApplicationContext));
 		dynamic.addMapping("/");
